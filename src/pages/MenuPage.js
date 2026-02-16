@@ -17,25 +17,25 @@ export class MenuPage {
 
   
 
-  async assertCoffeePriceHasValue(coffeeName, price) {
-    await expect(this.coffeHeadLocator(coffeeName)).toContainText(price);
-  }
+
 
   coffeeCupLocator(coffeeName) {
-    const testId = coffeeName.replace(' ', '_');
+    const testId = coffeeName.replaceAll(' ', '_');
 
     return this.page.getByTestId(testId);
   }
 
-  coffeHeadLocator(coffeeName) {
+  coffeeHeadLocator(coffeeName) {
     return this.page
       .getByRole('listitem')
       .filter({ has: this.coffeeCupLocator(coffeeName) });
   }
 
-  async assertCoffeeHeadLocatorCostHasValue(coffeeName, price) {
-    await expect(this.coffeHeadLocator(coffeeName)).toContainText(price);
+  async assertCoffeePriceHasValue(coffeeName, price) {
+    await expect(this.coffeeHeadLocator(coffeeName)).toContainText(price);
   }
+
+  
 
   async open() {
     await this.page.goto('/');

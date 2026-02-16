@@ -38,7 +38,7 @@ test('Assert cart updated correctly after clicking plus for drinks', async ({
     oneCappuccinoPrice,
   );
 
-  await cartPage.clickAddOneCoffeButton('Cappuccino');
+  await cartPage.clickAddOneCoffeeButton('Cappuccino');
 
   await cartPage.assertCoffeeTotalCostContainsCorrectText(
     'Cappuccino',
